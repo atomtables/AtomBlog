@@ -1,38 +1,15 @@
-# create-svelte
+# AtomSite (My personal portfolio)
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This is all the code to my personal portfolio website. I've been dragging
+my feet on this website for the better part of 3 years, getting nowhere each time.
+This website is special, as its one of the first projects I've ever done that I'm
+really publishing to be out there.
 
-## Creating a project
+The entire website was designed to be mobile, tablet, and desktop friendly. It uses
+a lot of JavaScript, but my plan is to eventually bring compatibility down to
+my Windows Phone with Internet Explorer 11. The compatibility's just there for the
+fun and learning the different methods used to backport incompatible features.
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+It was a lot of frustration trying to get the CSS working all properly. I used 
+TailwindCSS so it was a lot of work to find exactly where I added all the padding
+or stuff like that. It turned out pretty decent in the end, so enjoy!

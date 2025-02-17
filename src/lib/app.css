@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    color-scheme: only dark;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+@layer base {
+    * {
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+        @apply transition-all text-white;
+    }
+
+    html {
+        height: 100%;
+        overflow: auto;
+    }
+
+    hr {
+        @apply h-px my-8 bg-black border-0 dark:bg-white
+    }
+
+    .bg-animated-gradient {
+        background: linear-gradient(270deg, #0b9039, #00569d);
+        background-size: 400% 400%;
+
+        -webkit-animation: backgroundkeyframe 11s ease infinite;
+        -moz-animation: backgroundkeyframe 11s ease infinite;
+        animation: backgroundkeyframe 11s ease infinite;
+    }
+
+    @-webkit-keyframes backgroundkeyframe {
+        0% {
+            background-position: 94% 0
+        }
+        50% {
+            background-position: 7% 100%
+        }
+        100% {
+            background-position: 94% 0
+        }
+    }
+    @-moz-keyframes backgroundkeyframe {
+        0% {
+            background-position: 94% 0
+        }
+        50% {
+            background-position: 7% 100%
+        }
+        100% {
+            background-position: 94% 0
+        }
+    }
+    @keyframes backgroundkeyframe {
+        0% {
+            background-position: 94% 0
+        }
+        50% {
+            background-position: 7% 100%
+        }
+        100% {
+            background-position: 94% 0
+        }
+    }
+
+    .cloud {
+        margin-top: 70px;
+        width: 350px;
+        height: 120px;
+        background: #ECEFF1;
+        box-shadow: 10px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 100px;
+    }
+
+    .cloud::after, .cloud::before {
+        content: "";
+        position: relative;
+        display: inline-block;
+        background: inherit;
+        border-radius: inherit;
+    }
+
+    .cloud::after {
+        width: 100px;
+        height: 100px;
+        top: -120px;
+        left: -100px;
+    }
+
+    .cloud::before {
+        width: 180px;
+        height: 180px;
+        top: -70px;
+        left: 130px;
+    }
+
+    h1 {
+        @apply text-3xl lg:text-5xl;
+    }
+
+    body {
+        min-width: 320px;
+        min-height: 100vh;
+        font-weight: 300;
+    }
+
+    .button-hide {
+        @apply shadow-none hidden md:inline-block;
+    }
+
+    h1 {
+        @apply text-3xl font-bold;
+    }
+
+    h2 {
+        @apply text-2xl mt-3 font-bold;
+    }
+
+    h3 {
+        @apply text-xl mt-3 font-bold;
+    }
+
+    h4 {
+        @apply text-lg mt-3 font-bold;
+    }
+
+    h5 {
+        @apply text-base mt-3 font-bold;
+    }
+
+    h6 {
+        @apply text-sm mt-3 font-bold;
+    }
+
+    blockquote {
+        @apply bg-gray-800 p-2 m-2 border-l-4 border-white italic;
+    }
+
+    /* Move it (define the animation) */
+    @-moz-keyframes marquee {
+        0% {
+            transform: translateX(0%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+    @-webkit-keyframes marquee {
+        0% {
+            transform: translateX(0%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+    @keyframes marquee {
+        0% {
+            transform: translateX(0%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    .marquee-animation {
+        width: 10000px;
+
+        overflow-x: hidden;
+        position: relative;
+
+        /* Starting position */
+        transform: translateX(100%);
+        animation: marquee 3s linear infinite;
+    }
+}
