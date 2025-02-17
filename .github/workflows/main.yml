@@ -1,0 +1,64 @@
+name: main
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+jobs:
+  build-pages:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with: 
+            node-version: '18.x'
+#      - name: Cache node modules
+#        id: cache-npm
+#        uses: actions/cache@v3
+#        env:
+#          cache-name: cache-node-modules
+#        with:
+#          # npm cache files are stored in `~/.npm` on Linux/macOS
+#          path: |
+#            ~/.npm
+#            **/node_modules
+#          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+#          restore-keys: |
+#            ${{ runner.os }}-build-${{ env.cache-name }}-
+#            ${{ runner.os }}-build-
+#            ${{ runner.os }}-
+      - run: npm install
+      - run: npm run build
+      - name: Archive production artifacts zip
+        uses: actions/upload-artifact@v4
+        with:
+          name: website
+          path: build/
+      - name: Upload static files as artifact
+        id: deployment
+        uses: actions/upload-pages-artifact@v3 # or specific "vX.X.X" version tag for this action
+        with:
+          path: build/
+
+  deploy:
+    # Add a dependency to the build job
+    needs: build-pages
+
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    # Specify runner + deployment step
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4 # or specific "vX.X.X" version tag for this action
