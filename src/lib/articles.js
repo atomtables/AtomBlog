@@ -34,7 +34,7 @@ export default [
     {
         slug: "musicisliterallymagic",
         title: "Music is literally another level of magic",
-        description: "I had a talk with a friend about the different intricacies that turned music into sugar for the ears," +
+        description: "I had a talk with a friend about the different intricacies that turned music into sugar for the ears, " +
             "and I really just had to write about the beauty of it all.",
         date: new Date(2025, 1, 16),
         content: `
