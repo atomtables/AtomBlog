@@ -32,7 +32,7 @@
             factual, exact, or anything else. It's just my experience as a young teen in a world of cool stuff.</p><br>
         <p>I don't stick to a single topic. After all this is just about my random thoughts and projects, so there's
         just a whole lot of information I'm putting out there.</p><br>
-        <p>If my english sucks, please do NOT email my english teacher. Either way, its through repetitive writing that
+        <p>If my english sucks, please do NOT email my english teacher. Either way, it is through repetitive writing that
         you develop the skill anyway, right?</p><br>
         <p>If you want to contact me, please do at <a id="text-conversion" class="font-bold underline" href="mailto:firstname-lastname website">firstname-lastname website</a>.</p><br>
         <p>This website was made using SvelteKit and Svelte 4.</p>
