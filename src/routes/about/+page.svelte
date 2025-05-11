@@ -1,6 +1,24 @@
 <script>
     import {slide} from "svelte/transition";
     import Button from "$lib/components/Button.svelte";
+    import {onMount} from "svelte";
+
+    onMount(() => {
+        document.querySelector("#text-conversion").firstChild.nodeValue = document.querySelector("#text-conversion").firstChild.nodeValue
+            .replace('-', '.')
+            .replace(' ', '@')
+            .replaceAll(' ', '.')
+            .replaceAll(new RegExp('firstname', 'g'), 'adithiya')
+            .replaceAll(new RegExp('lastname', 'g'), 'venkatakrishnan')
+            .replace('website', 'atomtables.dev');
+        document.querySelector("#text-conversion").href = document.querySelector("#text-conversion").href
+            .replace('-', '.')
+            .replace(' ', '@')
+            .replaceAll(' ', '.')
+            .replaceAll(new RegExp('firstname', 'g'), 'adithiya')
+            .replaceAll(new RegExp('lastname', 'g'), 'venkatakrishnan')
+            .replace('website', 'atomtables.dev');
+    })
 </script>
 
 <div class="w-full m-auto py-2 -z-10" transition:slide>
@@ -16,7 +34,7 @@
         just a whole lot of information I'm putting out there.</p><br>
         <p>If my english sucks, please do NOT email my english teacher. Either way, its through repetitive writing that
         you develop the skill anyway, right?</p><br>
-        <p>If you want to contact me, please do at <b>adithiya.venkatakrishnan (at) atomtables (dot) dev</b>.</p><br>
+        <p>If you want to contact me, please do at <a id="text-conversion" class="font-bold underline" href="mailto:firstname-lastname website">firstname-lastname website</a>.</p><br>
         <p>This website was made using SvelteKit and Svelte 4.</p>
     </div>
 </div>
