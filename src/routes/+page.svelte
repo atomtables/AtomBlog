@@ -28,7 +28,7 @@
             <span>
                 Listing
                 <b class="font-black">{articless.length} {#if !filter || articles.length === articless.length}(all){/if}</b>
-                article{#if articless.length !== 1}s{/if} since
+                article{#if articless.length !== 1}s{/if} published before
                 <input type="date" value={`${new Date().getFullYear()}-${(new Date().getMonth() + 1) < 10 ? `0${(new Date().getMonth() + 1)}` : (new Date().getMonth() + 1)}-${(new Date().getDate()) < 10 ? `0${(new Date().getDate())}` : (new Date().getDate())}`} on:input={e => filter = new Date(e.target.value)} />.
             </span>
         </div>
