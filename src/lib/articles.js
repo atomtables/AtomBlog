@@ -299,4 +299,163 @@ export default [{
         Because the most important alliance is the one formed within a team. That eliminated the name "The Red Alliance",
         and also my favourite colour is green so might as well.
     `
+}, {
+    slug: "offforawhilethatwasweird",
+    title: "I was off for a while, was I doing something?",
+    description: "Spoiler alert: I was. I spent this summer in India, but I also worked on two cool projects called AtomChatDB and Pindle",
+    date: new Date(2025, 8-1, 15),
+    content: `
+        It's been a while since my last post, but give me some credit, AP season's a nightmare, and then in the
+        relaxation after that you kinda forget. I've also been staying in India this summer, and kinda just
+        remembered this exists (oops!).
+        <br><br>
+        I have been working on some apps though, just based on some previous ideas I have. It was really a pain to
+        get one of them working, but I also really like them both. I'm also starting on a new project that I think
+        will be really cool.
+        <br><br>
+        <h2>The first month: AtomChatDB</h2>
+        During my first month in India, I spent most of my time working on this chatting application. Obviously,
+        we have enough chat apps already, but this time, I wanted to create something similar to Usenet, a 
+        peculiar service I never had the privilege of using (being born in 2009 I only know the modern world
+        of apps, including Skype, if you can even call that modern).
+        <br><br>
+        For that reason, I really wanted to try to make a forum app similar to that. And also include live chatting
+        features. And profile pictures. I really wanted to take advantage of a lot of SvelteKit's features, including
+        hooking user requests and transferring them elsewhere. For instance, if a user doesn't have a profile picture
+        in my database, the server redirect to another service that generates a profile picture based on seed
+        and send that instead.
+        <br><br>
+        The background animation (which I spent way more time working on than I'd like to admit) also looks really
+        cool. It's 7 different wave svgs from haikei.app that I split and made move at different speeds. It was really
+        annoying to get right because of how the SVGs had to have two copies rendered so it wouldn't abruptly cut off.
+        In fact, I had to manually edit the SVGs so that their beginnings and ends would be more tapered, rather than 
+        cutting off abruptly. It was probably the smallest part of the app, but at least I can re-use that code 
+        elsewhere.
+        <br><br>
+        The forum functionality's kinda cool. There's no polling, so you have to reload every time to get new
+        messages. If someone deletes their post and the post has no replies, the post is hidden, but if there are
+        replies, the post is simply locked and not hidden. You can include text with photos and pictures.
+        <br><br>
+        The biggest nightmare in this app was definitely the real-time chat section. Where to even begin! SvelteKit
+        doesn't have support for websockets, so I had to use this weird pull-request version of SvKit with the feature
+        kinda added in? The maintainers weren't very clear if they even wanted to plan Websockets because they had a
+        discussion at the summit, so this app's foundation is already rocky.
+        <br><br>
+        On top of that, the chat wouldn't load if I deployed the app to HackClub's nest servers. I still don't know 
+        why, I assume it's something to do with Caddy not supporting WebSockets over HTTPS, and because my domain
+        is .dev and HTTPS-only, wouldn't allow websockets over my domain. I ended up temporarily just creating a 
+        new domain under the hack club one, and right now, AtomChatDB doesn't work if you want to use the
+        chat feature.
+        <br><br>
+        This project was a pretty fun one, and I had some ideas on what to do for it in the future, but because of
+        all the problems listed above, I just don't really like this project all that much. It's cool but it was
+        a nightmare, and I think there are other projects I can really push further and get working.
+        <br><br>
+        <h2>Also Pindle</h2>
+        I've been pretty interested in HTML5-based games that only use direct APIs from the web browser. Pindle
+        is basically that. It's like Wordle, but you guess a PIN instead of a word. I ended up spending more
+        time making it look like an android phone, to the point where I'd say if you put it in a movie, you
+        might be able to fool the viewers into thinking it's an actual phone.
+        <br><br>
+        The game has a couple different modes, where you can choose between 4, 6, 8, or variable amount of digits,
+        and you can also play on a leaderboard (which DOES work). It also uses Local Storage to store your current
+        best tries, so there's some memory concept.
+        <br><br>
+        I spent so much time just working on making it really look like android as well. Everything, from the
+        clock on the lock screen, to the double tap notifications, to the side-swipe to open, to the swipe to unlock,
+        to the pin pad animating from bottom to top, everything was custom designed to look perfect on both desktop
+        and mobile, even tiny iPhone SE screens. Why is this useful? No idea, but it was cool.
+        <br><br>
+        <h2>NestHelper??? Coming soon</h2>
+        After working on these two, I wanted to get out of website hell. And I also wanted to work on something that
+        would be useful for me, personally at the very least. But a little backstory.
+        <br><br>
+        When I was trying to set up AtomChatDB on HackClub's nest servers, I ran into a lot of issues. You already
+        know this. But the worst issue was that everytime I wanted to make a small change, I had to deal with the
+        lag of pulling on the server, then building, and then making sure that the systemctl process restarts.
+        And just typing in the terminal had a 200ms delay because of the server's load. It was awful.
+        <br><br>
+        My idea was that I could make it so I write these commands in advance, run them all at once, so I don't
+        have to wait for one command to finish before I can type the next one. While I'm at it, it would also be easier
+        manage files on the server through a GUI rather than SSHing in and using vim.
+        <br><br>
+        So NestHelper is supposed to be a desktop app that connects via SSH for you and allows you to abstract yourself
+        from the tty. This was originally going to be a command line utility, to keep the app close to SSH, but it's
+        probably more of a pain to do that and I also wanted an opportunity to work with Tauri and Rust.
+        <br><br>
+        So that's my update, I'll see you later!
+    `,
+}, {
+    slug: "nesthelperihaterust",
+    title: "My work on NestHelper, pretty good pretty good",
+    description: "NestHelper is a good project, and seems to be shaping up well.",
+    date: new Date(2025, 9-1, 2),
+    content: `
+        So I last talked about what I was going to work on with NestHelper, and it's going pretty well. You can 
+        actually try it out right now if you'd like at it's Github (https://github.com/atomtables/NestHelper).
+        Development was smooth, since I could just use SvelteKit, but the Rust backend was some of the most
+        annoying code I've ever written. Before you shout at me for being ignorant though, just hear me out.
+        <br><br>
+        <h2>Frontend</h2>
+        I used SvelteKit for the frontend, as is getting eerily typical for me (at this point my friends joke
+        about my GitHub being 50% svelte but they aren't even wrong). I got the user interface elements like
+        the Dialog boxes and Buttons from TheGreenAlliance, albeit modified to go with the purple user interface.
+        <blockquote>
+        Sidenote: I really should make a UI framework with my GreenAlliance framework, I seem to use it in
+        every project I make
+        </blockquote>
+        <br><br>
+        Using Tauri, I could make the traffic lights be aligned with the topbar on MacOS, so I decided to have
+        a tab bar on the topbar. The tab bar gives you like 4 pages: you can see the current flow, make new
+        flows, view the filesystem, and just run a single command.
+        <br><br>
+        <h2>Individual Features</h2>
+        <h3>Filesystem</h3>
+        So there's the ability to modify the filesystem. The main way it works is that it runs a Python script
+        to traverse every file in the system and list it in JSON format. This data is then displayed in the 
+        main interface. This data is reloaded every so often.
+        <br><br>
+        You can go into a file and see its size and options to load it as. Right now, you can load it as a 
+        text file or an image. For text, Monaco is embedded and you can choose a couple of languages for 
+        formatting.
+        <br><br>
+        Obviously, NestHelper doesn't load every file when it gets the structure, it loads files on-demand.
+        When you load a file, it runs another Python script that reads the file and sends the output back.
+        You can then modify the file on your side.
+        <br><br>
+        You can also delete files and create new ones, as well as upload files. When you want to commit your
+        changes, you can click the commit button, and it will use general Unix tools to write your files.
+        <br><br>
+        There's also conflict protection: if a file is missing and you modified it, then you can choose not to 
+        update, as to save your changes elsewhere. That way, the directory structure doesn't eat your
+        changes, incase the document was important.
+        <br><br>
+        <h3>Flows</h3>
+        Another big feature is Flows. You can basically set up a sequence of commands to be run in order, such 
+        that you can automate updating your server from the latest Git commit, or restarting a service, etc.
+        <br><br>
+        You have regular commands, but you can also make Javascript Tasks that run in the frontend. These have
+        access to the ability to use your native computer to process tasks within NestHelper, like updating
+        state. You can make, for instance, network requests to your server to make sure it's online after
+        restarting it, and you can log the output of these tasks back to the main flow.
+        <br><br>
+        <h3>General Commands</h3>
+        You can also just run normal commands, for example, if you want to git pull or nest caddy add. You have
+        visual history, and you can click on a command to see what its output was.
+        <br><br>
+        <h2>Development</h2>
+        Since I'm using Tauri, a big thing was using Rust commands to interface with ssh. This wasn't too hard
+        originally. But I started adding a bunch of constraints, like wanting to be able to stream the output
+        from the backend to frontend, as well as running asynchronous commands. This is where Rust started
+        to be painful.
+        <br><br>
+        The good thing was that Rust was very helpful in ensuring that the async code didn't randomly race 
+        condition, but the worst thing was the build times. Everytime I made a small change, it rebuilt 40
+        dependencies starting from the objc-native libraries. This was a pain, because it made working on the
+        app so much more difficult. Especially when the borrow checker would get mad every time. The code is
+        literally spaghetti of handle.clone(), handle1.clone(), handle2.clone() and handle3.clone(). Maybe I 
+        was doing it wrong, but it really was a pain on my slower system.
+        <br><br>
+        Other than that though, this was pretty good, so I will be pushing more updates in the future.
+    `
 }];
