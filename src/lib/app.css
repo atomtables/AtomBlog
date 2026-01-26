@@ -6,7 +6,8 @@
 
 * {
     color-scheme: only dark;
-    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: white;
+    font-family: "Helvetica Neue", "-apple-system", "Segoe UI", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
     font-weight: 400;
 }
 
@@ -114,28 +115,32 @@
         @apply shadow-none hidden md:inline-block;
     }
 
+    article a {
+        @apply hover:underline text-blue-500;
+    }
+
     h1 {
-        @apply text-3xl font-bold;
+        @apply text-3xl font-bold mb-2;
     }
 
     h2 {
-        @apply text-2xl mt-3 font-bold;
+        @apply text-2xl mt-3 font-bold mb-2;
     }
 
     h3 {
-        @apply text-xl mt-3 font-bold;
+        @apply text-xl mt-3 font-bold mb-2;
     }
 
     h4 {
-        @apply text-lg mt-3 font-bold;
+        @apply text-lg mt-3 font-bold mb-2;
     }
 
     h5 {
-        @apply text-base mt-3 font-bold;
+        @apply text-base mt-3 font-bold mb-2;
     }
 
     h6 {
-        @apply text-sm mt-3 font-bold;
+        @apply text-sm mt-3 font-bold mb-2;
     }
 
     blockquote {
@@ -168,6 +173,10 @@
         }
     }
 
+    article > img {
+        @apply rounded-lg my-4 w-full;
+    }
+
     .marquee-animation {
         width: 10000px;
 
@@ -177,5 +186,17 @@
         /* Starting position */
         transform: translateX(100%);
         animation: marquee 3s linear infinite;
+    }
+
+    br {
+        @apply mb-4
+    }
+
+    ul {
+        @apply list-disc ml-6 mb-4
+    }
+
+    pre {
+        @apply bg-gray-800 my-4 p-2 rounded-lg overflow-auto
     }
 }

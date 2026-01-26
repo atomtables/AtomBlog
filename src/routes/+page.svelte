@@ -22,6 +22,10 @@
     }
 </script>
 
+<svelte:head>
+    <title>the atom blog</title>
+</svelte:head>
+
 <div class="w-full m-auto py-2" transition:slide={{duration: 500}}>
     <div class="max-w-3xl mx-auto" >
         <div class="flex flex-col w-full bg-gray-800 bg-opacity-50 backdrop-blur-xl rounded-lg shadow-lg p-4 mb-4" transition:slide={{duration: 600}}>
@@ -38,7 +42,7 @@
                     <h2 class="text-3xl font-bold mb-2">{article.title}</h2>
                     <h3 class="text-gray-400 mb-2 -mt-1">{article.date.toLocaleDateString()}</h3>
                     <p class="text-gray-300 mb-4 line-clamp-3">{@html article.description}</p>
-                    <Button href={article.slug} action={() => click(article.slug)} icon="/icons/forward.png" className="w-min self-end">Read More</Button>
+                    <Button href={`/article/${article.slug}`} action={() => click(article.slug)} icon="/icons/forward.png" className="w-min self-end">Read More</Button>
                 </div>
             {/if}
         {/each}

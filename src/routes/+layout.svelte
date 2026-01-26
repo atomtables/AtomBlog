@@ -18,7 +18,7 @@
 <BackgroundLaggers/>
 
 <div class="h-full z-50 text-lg">
-    <header class="w-full p-10 backdrop-blur-xl bg-[#001220] bg-opacity-45 flex justify-between fixed z-50">
+    <header class="w-full p-10 backdrop-blur-xl bg-[#001220] bg-opacity-45 flex justify-between lg:fixed z-50">
         <a href="/">
             <img src="/atom blog.png" alt="the atom blog's logo" class="h-16">
         </a>
@@ -29,7 +29,7 @@
         </nav>
     </header>
     <div class="min-h-screen w-full">
-        <div class="pt-[154px]"></div>
+        <div class="lg:pt-[154px]"></div>
         <slot/>
     </div>
     <footer class="relative w-full bg-neutral-800 mt-24 p-12 h-max">

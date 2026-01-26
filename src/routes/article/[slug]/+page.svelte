@@ -8,6 +8,7 @@
 
 <svelte:head>
     <title>{data.title} | the atom blog</title>
+    <meta name="keywords" content="blog, articles, technology, programming, music, music history, web development, tutorials, coding, software development" />
     <meta name="description" content={data.description} />
     <meta name="author" content="Adithiya Venkatakrishnan" />
 </svelte:head>
