@@ -1,5 +1,4 @@
 <script>
-    import articles from "$lib/articles.js";
     import Button from "$lib/components/Button.svelte";
     import {slide} from "svelte/transition";
 

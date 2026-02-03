@@ -189,7 +189,8 @@
     }
 
     br {
-        @apply mb-4
+        content: '';
+        @apply mb-4;
     }
 
     ul {
